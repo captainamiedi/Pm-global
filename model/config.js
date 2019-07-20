@@ -2,12 +2,20 @@ import { Pool } from 'pg';
 
 require('dotenv').config();
 
-const conString = {
+let conString;
+
+const devConString = {
     user: 'postgres',
     host: '127.0.0.1',
     database: 'pmglobal',
     password: '1NIGeria',
     port: 5432,
+}
+
+if (process.env.NODE_ENV === 'production') {
+  conString = { connectionString: process.env.DATABASE_URL, ssl: true };
+} else {
+  conString = devConString;
 }
 
 const pool = new Pool(conString);
