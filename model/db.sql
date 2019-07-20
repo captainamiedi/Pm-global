@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS pmglobal;
-CREATE DATABASE pmglobal;
+-- DROP DATABASE IF EXISTS pmglobal;
+-- CREATE DATABASE pmglobal;
 
-\c pmglobal;
+-- \c pmglobal;
 
 CREATE TABLE users(
     id SERIAL PRIMARY KEY,
