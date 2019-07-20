@@ -16,12 +16,10 @@ export const create_user = async (req, res) => {
   try {
     const result = await db.query(createQuery, value);
     console.log(result.rows);
-    return res.status(201).json((
-       result.rows[0]
-    ));
+    return responseMsg(res, 201, 'successful', result.rows);
   } catch (error) {
     console.log(error, 'ooooooooo');
-    return responseMsg(res, 201, 'successful', result.rows);
+    res.status(400).json(error);
   }
 };
 
